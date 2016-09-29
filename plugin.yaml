@@ -1,6 +1,6 @@
 plugin:
-    name: 'code200.developer::lang.plugin.name'
-    description: 'code200.developer::lang.plugin.description'
+    name: 'Code200.developer::lang.plugin.name'
+    description: 'Code200.developer::lang.plugin.description'
     author: 'Miha Trtnik'
     icon: oc-icon-beer
-    homepage: ''
+    homepage: 'https://github.com/webeks/code200-developer'
