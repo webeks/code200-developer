@@ -1,4 +1,4 @@
-<?php namespace code200\Developer;
+<?php namespace Code200\Developer;
 
 use System\Classes\PluginBase;
 
