@@ -1,5 +1,6 @@
 <?php namespace Code200\Developer;
 
+use Illuminate\Support\Facades\Lang;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -16,13 +17,23 @@ class Plugin extends PluginBase
 
     }
 
-    public function registerComponents()
+    public function register()
     {
+        parent::register();
+
+        $this->registerConsoleCommand('developer.dbbackup', 'Code200\Developer\Console\Dbbackup');
+        $this->registerConsoleCommand('developer.gradimtransfercategories', 'Code200\Developer\Console\GradimTransferCategories');
+        $this->registerConsoleCommand('developer.gradimtransferposts', 'Code200\Developer\Console\GradimTransferPosts');
+
     }
 
-    public function registerSettings()
-    {
-    }
+//    public function registerComponents()
+//    {
+//    }
+//
+//    public function registerSettings()
+//    {
+//    }
 
 
     public function registerMarkupTags()
@@ -40,6 +51,13 @@ class Plugin extends PluginBase
 //                'printr' => ['October\Rain\Html\Form', 'open'],
                 'php_var_dump' => function($object) {
                     var_dump($object);
+                },
+                'php_print_r' => function($object, $format = false) {
+                    if($format) echo '<pre>';
+
+                    print_r($object);
+
+                    if($format) echo '</pre>';
                 }
             ]
         ];
