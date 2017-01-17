@@ -58,6 +58,24 @@ class Plugin extends PluginBase
                     print_r($object);
 
                     if($format) echo '</pre>';
+                },
+                'UID' => function() {
+                        $salt = "ljh8o24#$&aDSFGG#T23da%#";
+
+                        function getClientIp() {
+                            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                                $ip = $_SERVER['HTTP_CLIENT_IP'];
+                            } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                            } else {
+                                $ip = $_SERVER['REMOTE_ADDR'];
+                            }
+                            return $ip;
+                        }
+
+                        $ip = getClientIp();
+                        $uid = md5($ip . $salt . $_SERVER['HTTP_USER_AGENT']);
+                        return $uid;
                 }
             ]
         ];
