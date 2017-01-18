@@ -36,8 +36,8 @@ class Dbbackup extends Command
 
         switch ( config("database.default") ) {
             case "mysql":
-                $command = "mysqldump -u $username $database > {$storageDir}/{$database}_".date("Ymd_his", time()).".sql";
-                $this->info("Executing: " . $command);
+                $command = "mysqldump -u $username -p $password $database > {$storageDir}/{$database}_".date("Ymd_his", time()).".sql";
+                $this->info("Executing mysqldump backup ... ");
                 exec($command);
 
                 $this->info("MySql dump finished.");
