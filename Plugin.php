@@ -24,6 +24,7 @@ class Plugin extends PluginBase
         $this->registerConsoleCommand('developer.dbbackup', 'Code200\Developer\Console\Dbbackup');
         $this->registerConsoleCommand('developer.gradimtransfercategories', 'Code200\Developer\Console\GradimTransferCategories');
         $this->registerConsoleCommand('developer.gradimtransferposts', 'Code200\Developer\Console\GradimTransferPosts');
+        $this->registerConsoleCommand('developer.gradimtransfersearch', 'Code200\Developer\Console\GradimTransferSearch');
 
     }
 
@@ -59,7 +60,9 @@ class Plugin extends PluginBase
 
                     if($format) echo '</pre>';
                 },
+                //@todo move this -> developer plugin shouldnt be in production
                 'UID' => function() {
+                        //@todo move this thing to config !!!!
                         $salt = "ljh8o24#$&aDSFGG#T23da%#";
 
                         function getClientIp() {
